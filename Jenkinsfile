@@ -11,7 +11,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 //sh
-                bat "docker build -t='abhishekneela/b2b-automation-docker' ."
+                bat "docker build -t='abhishekneela/b2b-automation-docker:latest' ."
             }
         }
         stage('Push Image') {
