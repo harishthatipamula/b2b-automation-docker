@@ -18,7 +18,7 @@ pipeline {
             steps {
 			    withCredentials([usernamePassword(credentialsId: 'b2bdockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     //sh
-			        bat "docker login --username=${user} --password-stdin=${pass}"
+			        bat "docker login --username=${user} --password=${pass}"
 			        bat "docker push abhishekneela/b2b-automation-docker:latest"
 			    }                           
             }
