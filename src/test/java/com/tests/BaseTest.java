@@ -13,10 +13,9 @@ import java.net.URL;
 public class BaseTest {
 
     protected WebDriver driver;
-    protected static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
 
     @BeforeTest
-    public synchronized setupDriver(ITestContext ctx) throws MalformedURLException {
+    public void setupDriver(ITestContext ctx) throws MalformedURLException {
         // BROWSER => chrome / firefox
         // HUB_HOST => localhost / 10.0.1.3 / hostname
 
@@ -39,12 +38,7 @@ public class BaseTest {
         String completeUrl = "http://" + host + ":4444/wd/hub";
         dc.setCapability("name", testName);
         this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
-        tdriver.set(this.driver);
-        return getDriver();
-    }
-    
-    public synchronized synchronized WebDriver getDriver() {
-    return tdriver.get();
+        
     }
 
     @AfterTest
