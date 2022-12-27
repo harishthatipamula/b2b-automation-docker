@@ -16,7 +16,7 @@ public class BaseTest {
     protected static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
 
     @BeforeTest
-    public setupDriver(ITestContext ctx) throws MalformedURLException {
+    public String setupDriver(ITestContext ctx) throws MalformedURLException {
         // BROWSER => chrome / firefox
         // HUB_HOST => localhost / 10.0.1.3 / hostname
 
