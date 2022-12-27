@@ -16,7 +16,7 @@ public class BaseTest {
     protected static ThreadLocal<WebDriver> tdriver = new ThreadLocal<WebDriver>();
 
     @BeforeTest
-    public static setupDriver(ITestContext ctx) throws MalformedURLException {
+    public synchronized setupDriver(ITestContext ctx) throws MalformedURLException {
         // BROWSER => chrome / firefox
         // HUB_HOST => localhost / 10.0.1.3 / hostname
 
@@ -43,7 +43,7 @@ public class BaseTest {
         return getDriver();
     }
     
-    public static synchronized WebDriver getDriver() {
+    public synchronized synchronized WebDriver getDriver() {
     return tdriver.get();
     }
 
