@@ -11,7 +11,7 @@ pipeline {
         stage('Build Image') {
             steps {
                 //sh
-                bat "docker build -t=abhishekneela/b2b-sampleautomation-docker ."
+                bat "docker build -t=happyharish/b2b-automation-docker ."
             }
         }
         stage('Push Image') {
@@ -19,7 +19,7 @@ pipeline {
 			    withCredentials([usernamePassword(credentialsId: 'b2bdockerhub', passwordVariable: 'pass', usernameVariable: 'user')]) {
                     //sh
 			        bat "docker login --username=${user} --password=${pass}"
-			        bat "docker push abhishekneela/b2b-automation-docker:latest"
+			        bat "docker push happyharish/b2b-automation-docker:latest"
 			    }                           
             }
         }
